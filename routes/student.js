@@ -18,6 +18,9 @@ const upload = multer({ storage: storage });
 // Create student with 3 image uploads
 router.post('/', upload.array('images', 3), async (req, res) => {
     try {
+        if (!req.files || !Array.isArray(req.files)) {
+            return res.status(400).json({ error: 'No files uploaded' });
+        }
         const imagePaths = req.files.map(file => file.path);
         const student = new Student({ ...req.body, images: imagePaths });
         await student.save();
