@@ -4,7 +4,6 @@ const multer = require('multer');
 const Student = require('../models/Student');
 const path = require('path');
 
-// all code
 
 // Multer setup
 const storage = multer.diskStorage({
