@@ -12,7 +12,7 @@ app.use(express.json());
 app.use('/uploads', express.static('uploads')); // Serve static files
 app.use('/api/students', studentRoutes);
 
-// Connect MongoDB Atlas
+// Connect MongoDB Atlas with Mongoose
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
