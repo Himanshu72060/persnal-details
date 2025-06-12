@@ -7,11 +7,10 @@ const studentRoutes = require('./routes/student');
 dotenv.config();
 const app = express();
 
-app.use(cors({
-    origin: ["http://localhost:3000", "https://your-frontend-domain.com"],
-    credentials: true // if you're using cookies/auth
-}));
+app.use(cors());
+
 app.use(express.json());
+
 app.use('/uploads', express.static('uploads')); // Serve static files
 app.use('/api/students', studentRoutes);
 
